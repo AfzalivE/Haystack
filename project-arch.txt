@@ -1,0 +1,52 @@
+# High level component map
+
+Root component (AppComponent will handle dragging)
+|
+|
+-- InputComponent
+|
+|
+-- GridComponent --|
+|                  |
+|                  ItemComponent
+|
+|
+-- (stretch) DetailComponent (to show/edit details regarding the item)
+
+
+# List of services
+
+Firebase Service (ng2firebase)
+
+PageFetch Service
+To fetch page metadata when the link is entered.
+use https://www.npmjs.com/package/unfluff
+
+# Routes
+
+/dashboard
+The main route to display the dashboard with the input box and the grid
+
+(stretch)  /item/:id
+Shows detail component which contains options regarding the item like edit tags etc. 
+
+# Maintaining State
+
+Redux store. Central source of truth
+
+# Folder Structure
+
+src/
+    app.component.ts
+    input/
+        input.component.ts
+    dashboard/
+        dashboard.component.ts
+    grid/
+        grid.component.ts
+    griditem/
+        griditem.component.ts
+    services/
+        Firebase.service.ts
+        PageFetch.service.ts
+    
