@@ -21,6 +21,7 @@ Firebase Service (ng2firebase)
 PageFetch Service
 To fetch page metadata when the link is entered.
 use https://www.npmjs.com/package/unfluff
+https://github.com/mozilla/readability
 
 # Routes
 

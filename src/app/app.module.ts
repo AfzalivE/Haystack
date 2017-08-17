@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkerAppModule } from '@angular/platform-webworker';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +11,7 @@ import { InputComponent } from './input/input.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GridComponent } from './grid/grid.component';
 import { GriditemComponent } from './griditem/griditem.component';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -28,8 +28,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    WorkerModule,
     FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
     MdButtonModule,
     MdInputModule,
@@ -40,7 +40,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 
