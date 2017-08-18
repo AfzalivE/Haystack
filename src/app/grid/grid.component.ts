@@ -11,6 +11,8 @@ export class GridComponent implements OnInit {
   @Input()
   links: Link[];
 
+  searchText: string;
+
   constructor() { }
 
   ngOnInit() {

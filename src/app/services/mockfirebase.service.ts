@@ -1,6 +1,6 @@
 import { Link, ILink } from '../models/link';
 
-export const LINKS: ILink[] = [
+export var LINKS: ILink[] = [
     { id: 11, author: null, date: null,
         description: '“Google Home\'s Bluetooth functionality seems to be live now, for real https://t.co/GCTb1vq8Xu”',
         image: 'https://pbs.twimg.com/media/DHhXJAGVwAAv4ij.jpg:large', publisher: 'Twitter',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../models/link';
+import { Link, ILink } from '../models/link';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class DashboardComponent implements OnInit {
 
-  links: Link[];
+  links: ILink[];
 
   ngOnInit() {
     this.getLinks();

@@ -1,5 +1,13 @@
 // component css goes here
+:host {
+    text-align: center;
+}
 md-grid-list {
+    text-align: left;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+md-input-container {
+    width: 60%;
 }

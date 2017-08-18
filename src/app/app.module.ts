@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdInputModule, MdGridListModule, MdCardModule, MdSnackBarModule} from '@angular/material';
+import { MdButtonModule, MdInputModule, MdGridListModule, MdCardModule, MdSnackBarModule, MdIconModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GridComponent } from './grid/grid.component';
 import { GriditemComponent } from './griditem/griditem.component';
 import { HttpModule } from '@angular/http';
+import { TruncatePipe } from './truncate.pipe';
+import { SearchPipe } from './grid/search.pipe';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     InputComponent,
     DashboardComponent,
     GridComponent,
-    GriditemComponent
+    GriditemComponent,
+    TruncatePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ const appRoutes: Routes = [
     MdGridListModule,
     MdCardModule,
     MdSnackBarModule,
+    MdIconModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -1,6 +1,9 @@
 <div>
+    <md-input-container>
+        <input mdInput placeholder="Search" [(ngModel)]="searchText" name="searchText">
+    </md-input-container>
     <md-grid-list cols="4">
-        <md-grid-tile *ngFor="let link of links">
+        <md-grid-tile *ngFor="let link of links | search:searchText">
             <app-griditem [link]="link">
             </app-griditem>
         </md-grid-tile>
