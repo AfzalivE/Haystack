@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import * as Read from 'readability-from-string';
+import Metascraper from 'metascraper';
+import { Link } from '../models/link';
 
 @Injectable()
 export class PagefetchService {
 
-  constructor(private http: Http) { }
+  constructor() { }
 
   fetchPage(url: string) {
-    // console.log(url);
-    const newurl = `http://anyorigin.com/go?url=${url}`;
-    this.http.get(newurl).subscribe(data => {
-      const headers = data.headers;
-      console.log(headers);
-      // const content = JSON.stringify(JSON.parse(data.text())['contents']);
-      // console.log('test');
-      // const article = new Read(content, {
-      //   href: newurl
-      // });
-      // console.log(article);
-    });
+    const newurl = `${url}`;
+    return Metascraper.scrapeUrl(newurl)
+                .then((metadata) => {
+                  console.log(metadata);
+                  const link = new Link();
+                  link.setMetadata(metadata);
+
+                  return link;
+                });
   }
 
 }

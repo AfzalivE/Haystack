@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MdSnackBar} from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { PagefetchService } from '../services/pagefetch.service';
 import { Link } from '../models/link';
@@ -12,28 +13,40 @@ import { Link } from '../models/link';
 
 export class InputComponent implements OnInit {
 
-  model = new Link(213, 'https://google.com');
+  url: string;
+  tags: string;
 
-  constructor(private firebase: FirebaseService, private pagefetch: PagefetchService) { }
+  constructor(public snackBar: MdSnackBar, private firebase: FirebaseService, private pagefetch: PagefetchService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    if (this.validate(this.model)) {
-      this.pagefetch.fetchPage(this.model.link);
-      this.firebase.addLink(this.model);
-      this.newLink();
+    if (this.validate(this.url)) {
+      this.pagefetch.fetchPage(this.url)
+      .then((link) => {
+        link.tags = this.tags;
+        this.firebase.addLink(link);
+
+        this.resetForm();
+      });
     }
-    alert('submitted');
+    this.showSuccessSnackbar();
   }
 
-  validate(model: Link) {
-    return true;
+  validate(url: string) {
+    const matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+    return matcher.test(url);
   }
 
-  newLink() {
-    this.model = new Link(213, '');
+  resetForm() {
+    this.url = '';
+    this.tags = '';
   }
 
+  showSuccessSnackbar() {
+    this.snackBar.open('Link saved', null, {
+      duration: 500
+    });
+  }
 }

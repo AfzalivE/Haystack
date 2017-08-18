@@ -1,11 +1,18 @@
 <md-card>
+    <img md-card-image src={{link.image}}>    
     <md-card-header>
-      <md-card-title>Shiba Inu</md-card-title>
-      <md-card-subtitle>{{link.link}}</md-card-subtitle>
+      <md-card-title>{{link.title | truncate}}</md-card-title>
+      <md-card-subtitle>{{link.publisher}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
-        <p>
-          Tags: Hello
-        </p>
+      <p>
+        {{link.description}}
+      </p>
+      <p>
+        Tags: {{link.tags}}
+      </p>
       </md-card-content>
+      <md-card-actions>
+          <button md-button>Delete</button>
+        </md-card-actions>
 </md-card>

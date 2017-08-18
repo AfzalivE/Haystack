@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdInputModule, MdGridListModule, MdCardModule} from '@angular/material';
+import {MdButtonModule, MdInputModule, MdGridListModule, MdCardModule, MdSnackBarModule} from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
     MdInputModule,
     MdGridListModule,
     MdCardModule,
+    MdSnackBarModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
