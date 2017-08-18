@@ -23,6 +23,11 @@ md-card-title {
     padding: 10px;
 }
 
+.mat-icon:hover, .mat-icon:active {
+    border-radius: 100%;
+    padding: 10px;
+}
+
 md-card-actions {
     text-align: right;
 }

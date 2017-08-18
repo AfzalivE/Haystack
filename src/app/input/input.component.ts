@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import {MdSnackBar} from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { PagefetchService } from '../services/pagefetch.service';
@@ -16,9 +16,16 @@ export class InputComponent implements OnInit {
   url: string;
   tags: string;
 
+  @ViewChild('urlField')
+  urlField: ElementRef;
+
   constructor(public snackBar: MdSnackBar, private firebase: FirebaseService, private pagefetch: PagefetchService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.urlField.nativeElement.focus();
   }
 
   onSubmit() {
@@ -27,11 +34,12 @@ export class InputComponent implements OnInit {
       .then((link) => {
         link.tags = this.tags;
         this.firebase.addLink(link);
-
         this.resetForm();
+        this.showSuccessSnackbar();        
       });
+    } else {
+      this.showErrorSnackbar();
     }
-    this.showSuccessSnackbar();
   }
 
   validate(url: string) {
@@ -44,9 +52,21 @@ export class InputComponent implements OnInit {
     this.tags = '';
   }
 
+  onPaste(event: any) {
+    let content = event.clipboardData.getData('text/plain');
+    this.url = content;
+    this.urlField.nativeElement.focus();
+  }
+
   showSuccessSnackbar() {
     this.snackBar.open('Link saved', null, {
       duration: 500
+    });
+  }
+
+  showErrorSnackbar() {
+    this.snackBar.open('Link is not valid', null, {
+      duration: 1000
     });
   }
 }

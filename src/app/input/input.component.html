@@ -1,7 +1,7 @@
 <div style="text-align:center">
   <form id="submitinput" autocomplete="off" (keyup.enter)="onSubmit()">
     <md-input-container>
-      <input mdInput placeholder="Paste a link" [(ngModel)]="url" name="url">
+      <input mdInput #urlField placeholder="Paste a link" [(ngModel)]="url" name="url" (paste)="onPaste($event)">
     </md-input-container>
     <md-input-container>
       <input mdInput placeholder="Tags separated by space" [(ngModel)]="tags" name="tags">
