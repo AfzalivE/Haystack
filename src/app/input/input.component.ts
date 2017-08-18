@@ -25,6 +25,10 @@ export class InputComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    setTimeout(_ => this.initialize());
+  }
+
+  initialize() {
     this.urlField.nativeElement.focus();
   }
 

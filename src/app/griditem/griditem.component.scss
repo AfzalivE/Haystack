@@ -3,9 +3,10 @@
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 100% 100%;
     padding: 0px;
     margin: 24px;
+    cursor: pointer;
 }
 
 md-card-header {
@@ -17,15 +18,9 @@ md-card-title {
     font-weight: bold;
 }
 
-.mat-icon {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 100%;
-    padding: 10px;
-}
-
-.mat-icon:hover, .mat-icon:active {
-    border-radius: 100%;
-    padding: 10px;
+.button {
+    background-color: rgba(30, 30, 30, 0.8);
+    margin-right: 24px;
 }
 
 md-card-actions {

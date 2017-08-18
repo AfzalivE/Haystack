@@ -23,4 +23,8 @@ export class GriditemComponent implements OnInit {
     this.firebase.removeLink(this.link);
   }
 
+  click() {
+    window.open(this.link.url);
+  }
+
 }

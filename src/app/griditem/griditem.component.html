@@ -1,4 +1,4 @@
-<md-card [style.background-image]="'url(' + link.image + ')'">
+<md-card [style.background-image]="'url(' + link.image + ')'" (click)="click()">
     <md-card-header>
       <md-card-title>{{link.title | truncate: 40}}</md-card-title>
       <md-card-subtitle>
@@ -11,7 +11,7 @@
       </md-card-subtitle>
     </md-card-header>
     <md-card-actions>
-      <button md-button (click)="delete()"><md-icon>delete</md-icon></button>
+      <button md-mini-fab class="button" (click)="delete()"><md-icon>delete</md-icon></button>
     </md-card-actions>
 
 </md-card>
